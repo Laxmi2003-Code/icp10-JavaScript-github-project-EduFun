@@ -1,75 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            margin:0;
-            padding:0;
-        }
-        *
-        {
-            font-family:sans-serif;
-        }
-        .navbar
-        {
-            background-color:antiquewhite;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            height:70px;
-            padding: 0 20px;
-            box-shadow:0 0 10px 5px rgba(0, 0, 0, 0.24);
-        }
-        .navbar ul{
-            display:flex;
-            flex-direction:row;
-            flex-wrap:wrap;
-            margin-right: 10px;
-         }
-         .navbar li{
-            font-size:20px;
-            margin:20px;
-            list-style-type:none;
-            font-weight:600;
-            color:rgba(0, 0, 0, 0.71);
-            text-decoration:none;
-            cursor:pointer;
-            transition:underline 0.7s ease-in-out,color;
-         }
-         .navbar li:hover{
-           color:rgba(0, 26, 255, 0.829);
-           text-decoration:underline;
-           text-decoration-thickness:3px;
-           text-underline-offset:5px;
-         }
-         .edufun-logo{
-            margin-right:auto;
-         }
-         .edufun-logo img{
-            height:70px;
-         }
-         #logo-heading
-         {
-            height:50px;
-         }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="edufun-logo">
-            <img src="./icons/head-logo.png" alt="edufun-logo">
-            <img src="./icons/nav-heading.png" id="logo-heading" alt="logo-heading">
-        </div>
-        <ul>
-            <li>Home</li>
-            <li>Spaceship</li>
-            <li>About</li>
-            <li>contact</li>
-            <li>Log In</li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="./js/script.js"></script>
+    <script src="./js/login_and_signin.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="edufun-logo">
+        <img src="./icons/head-logo.png" alt="edufun-logo" />
+        <img
+          src="./icons/nav-heading.png"
+          id="logo-heading"
+          alt="logo-heading"
+        />
+      </div>
+      <ul>
+        <a href="./../../index.html"><li>Home</li></a>
+        <a href="./../../pages/notes.html"><li>Spaceship</li></a>
+        <a href="./../../pages/about_us.html"><li>About</li></a>
+        <a href="./../../pages/contact.html"><li>contact</li></a>
+        <a href="./../../pages/login.html"><li id="pn-UserlogIn">Log In</li></a>
+      </ul>
+      <div class="hamburger">
+        <button type="button" id="hamburger-btn" onclick="hamburgerMenu()">
+          <img src="./icons/hamburger-menu.png" />
+        </button>
+      </div>
     </nav>
-</body>
+    <nav class="ham-nav" id="ham-nav">
+      <ul>
+        <a href="./../../index.html"><li>Home</li></a>
+        <a href="./../../pages/notes.html"><li>Spaceship</li></a>
+        <a href="./../../pages/about_us.html"><li>About</li></a>
+        <a href="./../../pages/contact.html"><li>contact</li></a>
+        <a href="./../../pages/login.html"><li id="UserlogIn">Log In</li></a>
+      </ul>
+    </nav>
+
+    <div class="main-container"><h1>Main poster</h1></div>
+    <div class="educational-cards">educational-cards</div>
+    <div class="mini-cards">
+      <div
+        class="cards"
+        onmouseover="changeImg(`static-img-1`,`./images/brain-gif.gif`)"
+        onmouseout="changeImg(`static-img-1`,`./images/static-brain.png`)"
+      >
+        <div class="bx-1">
+          <img src="./images/static-brain.png" id="static-img-1" />
+        </div>
+        <div class="bx-2"></div>
+      </div>
+      <div
+        class="cards"
+        onmouseover="changeImg(`static-img-2`,`./images/book-gif.gif`)"
+        onmouseout="changeImg(`static-img-2`,`./images/static-book.png`)"
+      >
+        <div class="bx-2"></div>
+        <div class="bx-1">
+          <img src="./images/static-book.png" id="static-img-2" />
+        </div>
+      </div>
+      <div
+        class="cards"
+        onmouseover="changeImg(`static-img-3`,`./images/chess-gif.gif`)"
+        onmouseout="changeImg(`static-img-3`,`./images/static-chess.png`)"
+      >
+        <div class="bx-1">
+          <img src="./images/static-chess.png" id="static-img-3" />
+        </div>
+        <div class="bx-2"></div>
+      </div>
+      <div
+        class="cards"
+        onmouseover="changeImg(`static-img-4`,`./images/degree-gif.gif`)"
+        onmouseout="changeImg(`static-img-4`,`./images/static-degree.png`)"
+      >
+        <div class="bx-2"></div>
+        <div class="bx-1">
+          <img src="./images/static-degree.png" id="static-img-4" />
+        </div>
+      </div>
+    </div>
+    <!--why coice us -->
+<div class="trusties">
+<h1>Trusties</h1>
+</div>
+    <!--Fotter-->
+    
+    <div class="footer">
+      <div class="social-media-logo">
+      <img src="./images/static-github.png" id="logo1"onmouseover="mainImgChange(`logo1`,`./images/github.png`)" onmouseout="mainImgChange(`logo1`,`./images/static-github.png`)">
+      <img src="./images/static-instagram.png" id="logo2"onmouseover="mainImgChange(`logo2`,`./images/instagram.png`)" onmouseout="mainImgChange(`logo2`,`./images/static-instagram.png`)">
+      <img src="./images/static-facebook.png" id="logo3" onmouseover="mainImgChange(`logo3`,`./images/facebook.png`)" onmouseout="mainImgChange(`logo3`,`./images/static-facebook.png`)">
+      <img src="./images/static-linkedin.png"  id="logo4" onmouseover="mainImgChange(`logo4`,`./images/linkedin.png`)" onmouseout="mainImgChange(`logo4`,`./images/static-linkedin.png`)">
+      
+      </div>
+          </div>
+  </body>
 </html>
