@@ -31,6 +31,12 @@
     position: relative;
     
 }
+.timer {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 10px;
+}
 .heading-icon {
     width: 70px; 
     height: 70px;
@@ -162,7 +168,7 @@ option:hover {
         
     </div>
     <hr>
-
+    <div class="timer">Time Left: <span id="timer">30</span>s</div>
     <div class="quiz-content">
         <h2 id="question"></h2>
         
@@ -206,15 +212,32 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timer;
+let timeLeft = 30;
+
+function startTimer() {
+    timeLeft = 30;
+    document.getElementById("timer").textContent = timeLeft;
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").textContent = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            nextQuestion();
+        }
+    }, 1000);
+}
 
 function loadQuestion() {
+    clearInterval(timer);
+    startTimer();
     const questionEl = document.getElementById("question");
     const optionsEl = document.getElementById("options");
     const nextBtn = document.querySelector(".next-btn");
     const submitBtn = document.querySelector(".submit-btn");
 
     
-    questionEl.innerHTML = `<span class="question-number">${currentQuestionIndex + 1}.</span> ${quizData[currentQuestionIndex].question}`;
+    questionEl.innerHTML = `${currentQuestionIndex + 1}. ${quizData[currentQuestionIndex].question}`;
     
     optionsEl.innerHTML = "";
 
@@ -231,6 +254,7 @@ function loadQuestion() {
 }
 
 function checkAnswer(button, selectedIndex) {
+    clearInterval(timer);
     const correctIndex = quizData[currentQuestionIndex].answer;
     const options = document.querySelectorAll(".option");
 
@@ -274,33 +298,23 @@ function submitQuiz() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-
-    
     document.querySelector(".quiz-container").innerHTML = `
-        <div class="quiz-heading">
-            <div class="heading-icon">
-                <img src="./../../../../icons/gk_quiz.png" alt="Quiz Icon">
-                <span class="quiz-text">Gk Quiz</span>
-            </div>
+         <div class="quiz-heading">
+            <span class="quiz-text">GK Quiz</span>
         </div>
         <hr>
+        <div class="timer">Time Left: <span id="timer">30</span>s</div>
         <div class="quiz-content">
             <h2 id="question"></h2>
             <div class="options" id="options"></div>
             <hr>
             <button class="next-btn" onclick="nextQuestion()">Next</button>
             <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+            <button class="restart" onclick="restartQuiz()">Restart</button>
         </div>
     `;
-
-    loadQuestion(); 
+    loadQuestion();
 }
-
-function exitQuiz() {
-
-window.location.reload(); 
-}
-
 
 document.addEventListener("DOMContentLoaded", loadQuestion);
 
