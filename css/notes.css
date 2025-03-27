@@ -1,3 +1,10 @@
+body {
+    padding-top: 70px;
+    margin: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn{
     color:white;
     background-color: blue;
@@ -26,6 +33,8 @@
     border:  2px solid black;
     border-radius: 10px;
     margin: 12px;
+    padding: auto;
+    font-size: 15px;
     background-color: whitesmoke;
     justify-content: center;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.075);
