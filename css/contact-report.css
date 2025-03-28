@@ -11,7 +11,7 @@ body{
     border: px solid #445b9c;
     border-radius: 20px;
     background-color: #4665b9;
-    height: 470px;
+    height: 500px;
     width: 800px;
     /* text-align: center; */
     box-shadow: 0px 0px 9px 5px rgb(76, 81, 126);
@@ -58,4 +58,48 @@ body{
     box-shadow: 0px 0px 9px 5px rgb(94, 101, 163);
     text-align: center;
 }
+.social-head{
+    color: black;  
+    position: relative;
+    top:-59px;
+    left: 35px;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify;
+    padding: 20px;
+    
+}
+.font-awesome {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+
+}
+
+.social-icons {
+    position: relative;
+    font-size: 35px;
+    top: -85px;
+    height: 20px;
+    width: 43px;
+    padding: px;
+    cursor: pointer;
+    
+
+}
+.social-icons a {
+    color: black;
+}
+
+.social-icons :hover {
+    border: 7px solid var(--accent-color);
+    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.05);
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+
+
+}
