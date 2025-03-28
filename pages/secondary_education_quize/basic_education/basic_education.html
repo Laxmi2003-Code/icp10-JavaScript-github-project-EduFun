@@ -47,6 +47,7 @@
             justify-content: center;
             flex-wrap: nowrap;
             padding: 10px;
+            width: 100%;
         }
         .card {
             width: 280px;
@@ -58,9 +59,9 @@
             background: white;
             flex: 0 0 auto;
             display: flex;
-            align-items: flex-start;
+            align-items:center;
             justify-content: center;
-            padding: 0;
+            padding: 0px;
         }
         .card img {
             width: 100%;
@@ -113,11 +114,11 @@
            object-fit: cover;
             flex-direction: row;
             gap: 10px;
-            margin-top: 30px;
+            margin-top: 50px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .product-card img {
-            width: 80%;
+            width: 90%;
             height: auto;
             border-radius: 10px;
         } 
@@ -178,17 +179,17 @@
     <div class="products-section">
         <h2>Our Products</h2>
         <div class="search-bar">
-            <input type="text" placeholder="Search products...">
+            <input type="text" id="searchInput"  placeholder="Search products..." onkeyup="searchProducts()">
         </div>
         <div class="products-container">
                <div class="product-card">
-                <img src="./../../../images/geometry_box.jpg"  alt="geometry_box" id="main1">
+                <img src="./../../../images/geometry_box.jpg"  alt="geometry_box" id="product1">
                 
                 <div class="product-images">
-                    <img src="./../../../images/geometry_box.jpg" class="product-image" onclick="changeImage('./../../../images/geometry_box.jpg','main1')"/>
-                    <img src="./../../../images/box_card1.jpg" class="product-image" onclick="changeImage('./../../../images/box_card1.jpg','main1')"/>
-                    <img src="./../../../images/box_card2.jpg" class="product-image" onclick="changeImage('./../../../images/box_card2.jpg','main1')"/>
-                    <img src="./../../../images/box_card3.jpg" class="product-image" onclick="changeImage('./../../../images/box_card3.jpg','main1')"/>
+                    <img src="./../../../images/geometry_box.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/box_card1.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/box_card2.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/box_card3.jpg"  onclick="changeImage(event, 'product1')"/>
                 </div>
                 <h3>Geometry Box</h3>
                 <p>Master precision and creativity with our geometry box!</p>
@@ -197,12 +198,12 @@
                </div>
         
             <div class="product-card">
-                <img src="./../../../images/gk_quiz.jpg" alt="quiz_cube" id="main2">
+                <img src="./../../../images/gk_quiz.jpg" alt="quiz_cube" id="product2">
             
                 <div class="product-images">
-                    <img src="./../../../images/gk_quiz.jpg" class="product-image" onclick="changeImage('./../../../images/gk_quiz.jpg','main2')"/>
-                    <img src="./../../../images/cube1.jpg" class="product-image" onclick="changeImage('./../../../images/cube1.jpg','main2')"/>
-                    <img src="./../../../images/cube2.jpg" class="product-image" onclick="changeImage('./../../../images/cube2.jpg','main2')"/>
+                    <img src="./../../../images/gk_quiz.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
+                    <img src="./../../../images/cube1.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
+                    <img src="./../../../images/cube2.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
                 </div>
                 <h3>Quiz Cube</h3>
                 <p>Twist, turn, and challenge your mind with the Quiz Cube!</p>
@@ -211,13 +212,13 @@
                </div>
          
             <div class="product-card">
-                <img src="./../../../images/science_kit.jpg" alt="science_kit" id="main3">
+                <img src="./../../../images/science_kit.jpg" alt="science_kit" id="product3">
             
                 <div class="product-images">
-                    <img src="./../../../images/science_kit.jpg" class="product-image" onclick="changeImage('./../../../images/science_kit.jpg','main3')"/>
-                    <img src="./../../../images/kit1.jpg" class="product-image" onclick="changeImage('./../../../images/kit1.jpg','main3')"/>
-                    <img src="./../../../images/kit2.jpg" class="product-image" onclick="changeImage('./../../../images/kit2.jpg','main3')"/>
-                    <img src="./../../../images/kit3.jpg" class="product-image" onclick="changeImage('./../../../images/kit3.jpg','main3')"/>
+                    <img src="./../../../images/science_kit.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/kit1.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/kit2.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/kit3.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
                 </div>
                 <h3>Science Kit</h3>
                 <p>Unleash curiosity and explore science with our exciting kit!</p>
@@ -234,5 +235,28 @@
         </div>
     </div>
     </div>
+    <script>
+       
+       function changeImage(event, mainImageId) {
+            let newSrc = event.target.src;
+            let card = event.target.closest('.product-card');
+            let mainImage = card.querySelector(`#${mainImageId}`);
+            mainImage.src = newSrc;
+        }
+        
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                let productName = product.querySelector('h3').innerText.toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
