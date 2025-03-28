@@ -8,8 +8,16 @@ body{
     border: px solid #445b9c;
     border-radius: 20px;
     background-color: white;
-    height: 670px;
-    width: 1000px;
+    height: 470px;
+    width: 800px;
     text-align: center;
     box-shadow: 0px 0px 9px 5px rgb(76, 81, 126);
+}
+.main-head{
+    color: #4665b9;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    padding: 5px;
+    font-size: 40px;
 }
