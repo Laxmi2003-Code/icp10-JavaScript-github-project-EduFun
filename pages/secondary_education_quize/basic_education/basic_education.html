@@ -9,11 +9,10 @@
             font-family: Arial, sans-serif;
             background-color: #f8e8d5;
             display: flex;
-            justify-content: center;
+           flex-direction: column;
             align-items: center;
-            height: 100vh;
             margin: 0;
-            position: relative;
+            padding: 20px;
         }
         .exit {
         background-color:red;
@@ -41,21 +40,18 @@
         width: 15px;
         padding-left: 10px;
       }
-    
-     
+
         .container {
             display:flex;
             gap: 40px;
             justify-content: center;
             flex-wrap: nowrap;
-            overflow-x: auto;
             padding: 10px;
         }
         .card {
             width: 280px;
             height: 270px;
             border-radius: 15px;
-            overflow: hidden;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -71,24 +67,76 @@
             height: 100%;
             object-fit: cover;
             border-radius: 15px;
-            margin-top: -10px;
-           justify-content: center;
-           margin-bottom: -100px;
-
-
+        
         }
         .card:hover {
             transform: scale(1.05);
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-        } @media (max-width: 768px) {
-            .section-title {
-                position: relative;
-                right: auto;
-                top: 10px;
-                text-align: center;
-            }
         }
-
+        .products-section {
+            margin-top: 50px;
+            text-align: center;
+            width: 100%;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 140px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+        }
+        .products-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            
+        }
+        .product-card {
+            width: 300px;
+            border-radius: 10px;   
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: white;
+            object-fit: cover;
+            text-align: center;
+            padding: 15px;
+            cursor:pointer;
+            
+        }
+        
+        .product-image{
+           object-fit: cover;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card img {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+        } 
+        .product-images img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+        .button{
+            padding: 10px 15px;
+             margin-top: 10px;
+            border: none;
+            border-radius: 18px;
+            color: white;
+            background-color: orange;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +145,7 @@
     ><button class="exit">
       Exit<img src="./../../../images/exit.png" /></button
   ></a>
+  <h1>brain boosters</h1>
 
     <div class="container">
         <div class="card">
@@ -122,6 +171,66 @@
             <img src="./../../../images/science1.jpg" alt="Science">
 
         </a>
+        
+        </div>
+        
+    </div>
+    <div class="products-section">
+        <h2>Our Products</h2>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+        <div class="products-container">
+               <div class="product-card">
+                <img src="./../../../images/geometry_box.jpg"  alt="geometry_box" id="main1">
+                
+                <div class="product-images">
+                    <img src="./../../../images/geometry_box.jpg" class="product-image" onclick="changeImage('./../../../images/geometry_box.jpg','main1')"/>
+                    <img src="./../../../images/box_card1.jpg" class="product-image" onclick="changeImage('./../../../images/box_card1.jpg','main1')"/>
+                    <img src="./../../../images/box_card2.jpg" class="product-image" onclick="changeImage('./../../../images/box_card2.jpg','main1')"/>
+                    <img src="./../../../images/box_card3.jpg" class="product-image" onclick="changeImage('./../../../images/box_card3.jpg','main1')"/>
+                </div>
+                <h3>Geometry Box</h3>
+                <p>Master precision and creativity with our geometry box!</p>
+                <b> <p>₹250/-</p> </b>  
+               <button class="button" onclick="addToCart('box_cards', 250)">Add to Cart</button>
+               </div>
+        
+            <div class="product-card">
+                <img src="./../../../images/gk_quiz.jpg" alt="quiz_cube" id="main2">
+            
+                <div class="product-images">
+                    <img src="./../../../images/gk_quiz.jpg" class="product-image" onclick="changeImage('./../../../images/gk_quiz.jpg','main2')"/>
+                    <img src="./../../../images/cube1.jpg" class="product-image" onclick="changeImage('./../../../images/cube1.jpg','main2')"/>
+                    <img src="./../../../images/cube2.jpg" class="product-image" onclick="changeImage('./../../../images/cube2.jpg','main2')"/>
+                </div>
+                <h3>Quiz Cube</h3>
+                <p>Twist, turn, and challenge your mind with the Quiz Cube!</p>
+                <b> <p>₹1500/-</p> </b>  
+               <button class="button" onclick="addToCart('box_cards', 1500)">Add to Cart</button>
+               </div>
+         
+            <div class="product-card">
+                <img src="./../../../images/science_kit.jpg" alt="science_kit" id="main3">
+            
+                <div class="product-images">
+                    <img src="./../../../images/science_kit.jpg" class="product-image" onclick="changeImage('./../../../images/science_kit.jpg','main3')"/>
+                    <img src="./../../../images/kit1.jpg" class="product-image" onclick="changeImage('./../../../images/kit1.jpg','main3')"/>
+                    <img src="./../../../images/kit2.jpg" class="product-image" onclick="changeImage('./../../../images/kit2.jpg','main3')"/>
+                    <img src="./../../../images/kit3.jpg" class="product-image" onclick="changeImage('./../../../images/kit3.jpg','main3')"/>
+                </div>
+                <h3>Science Kit</h3>
+                <p>Unleash curiosity and explore science with our exciting kit!</p>
+                <b> <p>₹5000/-</p> </b>  
+               <button class="button" onclick="addToCart('box_cards', 5000)">Add to Cart</button>
+               </div>
+          
+            <div class="product-card">
+                <img src="./../../../images/dictionary.jpg" alt="Dictionary" id="main4">
+                <h3>English Dictionary</h3>
+                <p>Help your character learn and play!</p>
+            </div>
+        </div>
         </div>
     </div>
     </div>
