@@ -27,6 +27,12 @@
   border-radius: 8px;
   background-color: beige;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.164);
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.edu-cards:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.607);
 }
 .edu-box-1 {
   height: 40%;
