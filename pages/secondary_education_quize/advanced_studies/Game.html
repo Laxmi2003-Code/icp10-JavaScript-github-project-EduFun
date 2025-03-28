@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India GK Quiz</title>
+    <title>Funny Student Quiz</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             padding: 20px;
             color: white;
         }
         .quiz-container {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
             max-width: 500px;
             margin: auto;
             backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .fun-image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
         }
         .option {
             display: block;
             margin: 10px 0;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.3);
-            color: white;
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -34,7 +40,7 @@
             font-size: 16px;
         }
         .option:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.8);
         }
         .correct {
             background: #28a745 !important;
@@ -51,7 +57,7 @@
             margin-top: 15px;
             padding: 10px 20px;
             font-size: 16px;
-            background: #ff9f43;
+            background: #ff5733;
             border: none;
             color: white;
             border-radius: 8px;
@@ -59,30 +65,13 @@
             transition: 0.3s;
         }
         button#next-btn:hover {
-            background: #ff6b00;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background: #000000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-right:1200px;
-        }
-        button:hover {
-            background: #218838;
+            background: #c70039;
         }
     </style>
 </head>
 <body>
-    <div class="but">
-        <a href="./../.././junior_secondary_studies/junior_secondary_studies.html"
-        ><button class="exit" onclick="confirmExit()">
-          Back⬅</button
-      ></a></div>
     <div class="quiz-container">
+        <img id="fun-image" class="fun-image" src="" alt="Funny Image">
         <h2 id="question">Loading...</h2>
         <div id="options"></div>
         <button id="next-btn" onclick="nextQuestion()">Next</button>
@@ -92,29 +81,34 @@
     <script>
         const quizData = [
             {
-                question: "What is the capital of India?",
-                options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
-                answer: "New Delhi"
+                question: "What is the most common exam time activity?",
+                options: ["Studying", "Crying", "Praying", "All of the above"],
+                answer: "All of the above",
+                image: "https://i.imgur.com/tOEK2bM.png"
             },
             {
-                question: "Who is known as the Father of the Nation in India?",
-                options: ["Jawaharlal Nehru", "Subhas Chandra Bose", "Mahatma Gandhi", "Sardar Patel"],
-                answer: "Mahatma Gandhi"
+                question: "What happens when the teacher says 'Surprise Test' ?",
+                options: ["Panic", "Run Away", "Fake a Fever", "All of the above"],
+                answer: "All of the above",
+                image: "https://i.imgur.com/nPCn4yN.png"
             },
             {
-                question: "Which is the national animal of India?",
-                options: ["Lion", "Elephant", "Tiger", "Leopard"],
-                answer: "Tiger"
+                question: "What do students write on their notebooks most of the time?",
+                options: ["Notes", "Doodles", "Random Thoughts", "Names of Crushes"],
+                answer: "Doodles",
+                image: "https://i.imgur.com/7Q5PjTm.png"
             },
             {
-                question: "Which is the longest river in India?",
-                options: ["Yamuna", "Ganga", "Brahmaputra", "Godavari"],
-                answer: "Ganga"
+                question: "How do students feel when the teacher doesn’t check homework?",
+                options: ["Relieved", "Excited", "Confused", "All of the above"],
+                answer: "All of the above",
+                image: "https://i.imgur.com/KY4fFnR.png"
             },
             {
-                question: "Who was the first Prime Minister of India?",
-                options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Sardar Patel"],
-                answer: "Jawaharlal Nehru"
+                question: "What is the most common excuse for not doing homework?",
+                options: ["Dog ate it", "Forgot it at home", "Lost my notebook", "All of the above"],
+                answer: "All of the above",
+                image: "https://i.imgur.com/AMztkgL.png"
             }
         ];
 
@@ -126,6 +120,7 @@
             document.getElementById("question").innerText = questionData.question;
             document.getElementById("options").innerHTML = "";
             document.getElementById("result").innerText = "";
+            document.getElementById("fun-image").src = questionData.image;
             
             questionData.options.forEach(option => {
                 const button = document.createElement("button");
@@ -142,8 +137,10 @@
             if (selectedOption === correctAnswer) {
                 button.classList.add("correct");
                 score++;
+                playSound('correct');
             } else {
                 button.classList.add("incorrect");
+                playSound('wrong');
                 document.querySelectorAll(".option").forEach(btn => {
                     if (btn.innerText === correctAnswer) {
                         btn.classList.add("correct");
@@ -157,10 +154,15 @@
                 currentQuestionIndex++;
                 loadQuestion();
             } else {
-                document.getElementById("result").innerText = `Quiz Over! Your Score: ${score}/${quizData.length}`;
+                document.getElementById("result").innerText = `Game Over! Your Score: ${score}/${quizData.length}`;
                 document.getElementById("options").innerHTML = "";
                 document.getElementById("next-btn").style.display = "none";
             }
+        }
+
+        function playSound(type) {
+            let audio = new Audio(type === 'correct' ? 'https://www.myinstants.com/media/sounds/correct.mp3' : 'https://www.myinstants.com/media/sounds/wrong.mp3');
+            audio.play();
         }
 
         loadQuestion();

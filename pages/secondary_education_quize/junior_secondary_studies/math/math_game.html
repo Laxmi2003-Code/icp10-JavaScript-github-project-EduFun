@@ -102,9 +102,41 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
+        button#next-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #ff9f43;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button#next-btn:hover {
+            background: #ff6b00;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right:1200px;
+        }
+        button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
+    <div class="but">
+        <a href="./../.././junior_secondary_studies/junior_secondary_studies.html"
+        ><button class="exit" onclick="confirmExit()">
+          Back⬅</button
+      ></a></div>
     <div class="container">
         <h2>Advanced Math Quiz</h2>
         <h3>Score: <span id="score">0</span></h3>
