@@ -30,6 +30,7 @@ function addData() {
   userNameInput.value = "";
   passWordInput.value = "";
   alert("Sign-up successful! You can now log in.");
+  window.location.href = ".././pages/login.html"; // Redirect after sign
 }
 
 // Log-in functionality
