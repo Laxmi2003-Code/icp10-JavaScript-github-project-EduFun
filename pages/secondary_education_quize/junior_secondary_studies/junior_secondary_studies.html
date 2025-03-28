@@ -76,7 +76,7 @@
 </head>
 <body>
     <div class="but">
-        <a href="./../.././junior_secondary_studies/junior_secondary_studies.html"
+        <a href="./../.././/secondary_education_quize/secondary_education.html"
         ><button class="exit" onclick="confirmExit()">
           Back⬅</button
       ></a></div>
@@ -157,10 +157,10 @@
                 let cartHTML = "<ul>";
                 let total = 0;
                 cart.forEach(product => {
-                    cartHTML += `<li>${product.item} - $${product.price}</li>`;
+                    cartHTML += `<li>${product.item} - ₹${product.price}</li>`;
                     total += product.price;
                 });
-                cartHTML += `</ul><p><strong>Total: $${total}</strong></p>`;
+                cartHTML += `</ul><p><strong>Total: ₹${total}</strong></p>`;
                 cartInfo.innerHTML = cartHTML;
             }
         }
