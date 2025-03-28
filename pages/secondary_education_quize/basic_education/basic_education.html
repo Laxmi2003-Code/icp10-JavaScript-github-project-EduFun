@@ -81,10 +81,11 @@
         }
         .search-bar {
             margin-bottom: 20px;
-            text-align: center;
+            text-align:center;
+            padding-left: 35px;
         }
         .search-bar input {
-            width: 140px;
+            width: 170px;
             padding: 10px;
             font-size: 16px;
             border-radius: 7px;
@@ -97,6 +98,9 @@
             flex-wrap: wrap;
             padding: 20px;
             
+        }
+        .product-heading{
+            color:#cc6600;
         }
         .product-card {
             width: 300px;
@@ -118,7 +122,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .product-card img {
-            width: 90%;
+            width: 80%;
             height: auto;
             border-radius: 10px;
         } 
@@ -128,6 +132,14 @@
             border-radius: 5px;
             cursor: pointer;
             border: 1px solid #ccc;
+        }
+        .heading{
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .button{
             padding: 10px 15px;
@@ -146,7 +158,7 @@
     ><button class="exit">
       Exit<img src="./../../../images/exit.png" /></button
   ></a>
-  <h1>brain boosters</h1>
+  <h1 class="heading">Brain Boosters..🧠</h1>
 
     <div class="container">
         <div class="card">
@@ -177,14 +189,14 @@
         
     </div>
     <div class="products-section">
-        <h2>Our Products</h2>
+        <h2 class="product-heading">Our Products</h2>
         <div class="search-bar">
             <input type="text" id="searchInput"  placeholder="Search products..." onkeyup="searchProducts()">
         </div>
         <div class="products-container">
                <div class="product-card">
                 <img src="./../../../images/geometry_box.jpg"  alt="geometry_box" id="product1">
-                
+                <br><br><br><br>
                 <div class="product-images">
                     <img src="./../../../images/geometry_box.jpg"  onclick="changeImage(event, 'product1')"/>
                     <img src="./../../../images/box_card1.jpg"  onclick="changeImage(event, 'product1')"/>
@@ -226,11 +238,7 @@
                <button class="button" onclick="addToCart('box_cards', 5000)">Add to Cart</button>
                </div>
           
-            <div class="product-card">
-                <img src="./../../../images/dictionary.jpg" alt="Dictionary" id="main4">
-                <h3>English Dictionary</h3>
-                <p>Help your character learn and play!</p>
-            </div>
+           
         </div>
         </div>
     </div>
