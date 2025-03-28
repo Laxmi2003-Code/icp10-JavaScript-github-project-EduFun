@@ -41,9 +41,26 @@
 .edu-box-2{
  height:60%;
  width:100%;
- b
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ position:relative;
 }
-
+.edu-box-2 h2{
+  padding-top:10px;
+  position:absolute;
+  top:5px;
+}
+.edu-box-2 ul{
+  position:absolute;
+  left:50px;
+ font-size:22px;
+}
+.edu-box-2 li{
+  padding:5px;
+  font-weight:400;
+}
 .mini-cards {
   height: auto;
   width: 100%;
