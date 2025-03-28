@@ -181,6 +181,11 @@
     flex-direction: column;
     height: auto;
   }
+  .bx-1 img 
+  {
+    height:100px;
+    width:100px;
+  }
 }
 
 @media (min-width: 701px) and (max-width: 880px) {
