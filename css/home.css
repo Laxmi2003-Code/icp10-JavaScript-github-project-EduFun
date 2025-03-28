@@ -29,12 +29,17 @@
 }
 .edu-box-1
 {
-  height:30%;
+  height:40%;
   width:100%;
   background-color: gray;
 }
+.edu-box-1 img
+{
+  height:100%;
+  width:100%;
+}
 .edu-box-2{
- height:70%;
+ height:60%;
  width:100%;
  background-color:red;
 }
