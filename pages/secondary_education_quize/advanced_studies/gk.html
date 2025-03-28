@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GK Quiz</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            width: 40%;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .quiz-container:hover {
+            transform: scale(1.05);
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            background: #ff758c;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background: #ff5277;
+            transform: scale(1.05);
+        }
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        .timer {
+            font-size: 18px;
+            color: white;
+            background: #ff5277;
+            padding: 8px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Loading question...</h2>
+        <div id="options"></div>
+        <p class="timer" id="timer">Time left: 10s</p>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "Who is known as the Father of the Indian Constitution?",
+                options: ["Mahatma Gandhi", "B.R. Ambedkar", "Jawaharlal Nehru", "Sardar Patel"],
+                answer: "B.R. Ambedkar"
+            },
+            {
+                question: "Which is the largest planet in our solar system?",
+                options: ["Earth", "Mars", "Jupiter", "Saturn"],
+                answer: "Jupiter"
+            },
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                answer: "Paris"
+            },
+            {
+                question: "Who discovered gravity?",
+                options: ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Nikola Tesla"],
+                answer: "Isaac Newton"
+            },
+            {
+                question: "Which is the longest river in the world?",
+                options: ["Amazon", "Nile", "Ganges", "Yangtze"],
+                answer: "Nile"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 10;
+        let timer;
+        
+        function loadQuestion() {
+            clearInterval(timer);
+            timeLeft = 10;
+            document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+            
+            const questionData = quizData[currentQuestionIndex];
+            document.getElementById("question").innerText = questionData.question;
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = "";
+            
+            questionData.options.forEach(option => {
+                const button = document.createElement("button");
+                button.classList.add("option");
+                button.innerText = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+            
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        function checkAnswer(selected) {
+            clearInterval(timer);
+            const correctAnswer = quizData[currentQuestionIndex].answer;
+            if (selected === correctAnswer) {
+                score++;
+            }
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                document.getElementById("result").innerText = `Quiz Over! Your score: ${score}/${quizData.length}`;
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("timer").innerText = "";
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

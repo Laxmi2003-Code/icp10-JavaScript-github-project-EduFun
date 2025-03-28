@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Grade Biology Quiz</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .quiz-container {
+            width: 40%;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .quiz-container:hover {
+            transform: scale(1.05);
+        }
+        .option {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            background: #28c76f;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background: #1eaf5c;
+            transform: scale(1.05);
+        }
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        .timer {
+            font-size: 18px;
+            color: white;
+            background: #ff9f43;
+            padding: 8px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Loading question...</h2>
+        <div id="options"></div>
+        <p class="timer" id="timer">Time left: 10s</p>
+        <p class="result" id="result"></p>
+    </div>
+    <script>
+        const quizData = [
+            {
+                question: "What is the powerhouse of the cell?",
+                options: ["Nucleus", "Ribosome", "Mitochondria", "Golgi Apparatus"],
+                answer: "Mitochondria"
+            },
+            {
+                question: "Which organ is responsible for filtering blood?",
+                options: ["Liver", "Kidney", "Heart", "Lungs"],
+                answer: "Kidney"
+            },
+            {
+                question: "What is the basic unit of life?",
+                options: ["Tissue", "Organ", "Cell", "DNA"],
+                answer: "Cell"
+            },
+            {
+                question: "Which vitamin is produced in the skin when exposed to sunlight?",
+                options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+                answer: "Vitamin D"
+            },
+            {
+                question: "Which blood cells help fight infections?",
+                options: ["Red blood cells", "White blood cells", "Platelets", "Plasma cells"],
+                answer: "White blood cells"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timeLeft = 10;
+        let timer;
+
+        function loadQuestion() {
+            clearInterval(timer);
+            timeLeft = 10;
+            document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+            
+            const questionData = quizData[currentQuestionIndex];
+            document.getElementById("question").innerText = questionData.question;
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = "";
+            
+            questionData.options.forEach(option => {
+                const button = document.createElement("button");
+                button.classList.add("option");
+                button.innerText = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+            
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+
+        function checkAnswer(selected) {
+            clearInterval(timer);
+            const correctAnswer = quizData[currentQuestionIndex].answer;
+            if (selected === correctAnswer) {
+                score++;
+                alert("🎉 Correct! Well done! 🔬");
+            } else {
+                alert("❌ Oops! Try again next time!");
+            }
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                document.getElementById("result").innerText = `Quiz Over! Your score: ${score}/${quizData.length} 🎊`;
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("timer").innerText = "";
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
