@@ -11,7 +11,6 @@
 }
 .educational-cards {
   height:auto;
-  background-color:pink;
   display:flex;
   align-items: center;
   justify-content:center;
@@ -26,12 +25,13 @@
   height:65vh;
   width:350px;
   border-radius:8px;
+  background-color:beige;
 }
 .edu-box-1
 {
   height:40%;
   width:100%;
-  background-color: gray;
+  
 }
 .edu-box-1 img
 {
@@ -41,7 +41,7 @@
 .edu-box-2{
  height:60%;
  width:100%;
- background-color:red;
+ b
 }
 
 .mini-cards {
