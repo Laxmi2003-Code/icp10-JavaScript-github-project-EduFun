@@ -10,15 +10,40 @@
   margin-bottom: 25px;
 }
 .educational-cards {
-  height: 250px;
-  width: 100%;
-  background-color: pink;
-  margin-bottom: 25px;
-  font-size: 100px;
-  display: flex;
+  height:auto;
+  display:flex;
   align-items: center;
-  justify-content: center;
+  justify-content:center;
+  flex-direction:row;
+  gap:50px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
 }
+
+.edu-cards {
+  border:3px solid black;
+  height:65vh;
+  width:350px;
+  border-radius:8px;
+  background-color:beige;
+}
+.edu-box-1
+{
+  height:40%;
+  width:100%;
+  
+}
+.edu-box-1 img
+{
+  height:100%;
+  width:100%;
+}
+.edu-box-2{
+ height:60%;
+ width:100%;
+ b
+}
+
 .mini-cards {
   height: auto;
   width: 100%;
