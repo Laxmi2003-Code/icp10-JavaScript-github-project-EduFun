@@ -1,3 +1,15 @@
 body{
     background-color:#445b9c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}.container {
+    border: px solid #445b9c;
+    border-radius: 20px;
+    background-color: white;
+    height: 670px;
+    width: 1000px;
+    text-align: center;
+    box-shadow: 0px 0px 9px 5px rgb(76, 81, 126);
 }
