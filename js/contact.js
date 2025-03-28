@@ -16,5 +16,7 @@ function submitform() {
     }
     info.push(databasee)
  localStorage.setItem("key" , JSON.stringify(info));
+ 
+ window.location.href="./../pages/contact_report.html"
    
 }
