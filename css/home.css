@@ -14,18 +14,29 @@
   background-color:pink;
   display:flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content:center;
   flex-direction:row;
-  gap:10px;
+  gap:50px;
   margin-bottom:25px;
   flex-wrap:wrap;
 }
 
 .edu-cards {
   border:3px solid black;
-  height:450px;
+  height:65vh;
   width:350px;
   border-radius:8px;
+}
+.edu-box-1
+{
+  height:30%;
+  width:100%;
+  background-color: gray;
+}
+.edu-box-2{
+ height:70%;
+ width:100%;
+ background-color:red;
 }
 
 .mini-cards {
