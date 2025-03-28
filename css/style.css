@@ -175,6 +175,10 @@ body {
   .ham-nav {
     display: none;
   }
+ p 
+ {
+  font-size:10px;
+ }
 }
 @media (min-width: 700px) and (max-width: 1024px) {
   .hamburger {
