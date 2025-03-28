@@ -10,15 +10,24 @@
   margin-bottom: 25px;
 }
 .educational-cards {
-  height: 250px;
-  width: 100%;
-  background-color: pink;
-  margin-bottom: 25px;
-  font-size: 100px;
-  display: flex;
+  height:auto;
+  background-color:pink;
+  display:flex;
   align-items: center;
-  justify-content: center;
+  justify-content:space-around;
+  flex-direction:row;
+  gap:10px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
 }
+
+.edu-cards {
+  border:3px solid black;
+  height:450px;
+  width:350px;
+  border-radius:8px;
+}
+
 .mini-cards {
   height: auto;
   width: 100%;
