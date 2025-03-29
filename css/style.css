@@ -103,6 +103,8 @@ body {
   align-items: center;
   width: 100%;
   background-color: #f8f9fa;
+  position:static;
+  bottom:0px;
   padding: 30px 0;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -156,16 +158,17 @@ body {
   width: 30px;
   margin: 5px;
   cursor: pointer;
-  transition: transform 0.3s, border 0.3s, background-color 0.3s;
+  transition: all 0.3s;
 }
 
 .social-media-logo img:hover {
-  transform: scale(1.1);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  background-color: rgba(121, 121, 236, 0.2);
+ transform: scale(1.03);
 }
-
+#f-head
+{
+  margin-top:25px;
+  height:50px;
+}
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
