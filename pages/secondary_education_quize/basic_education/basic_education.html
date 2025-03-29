@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8e8d5;
+            background-color: #fff;
             display: flex;
            flex-direction: column;
             align-items: center;
@@ -53,10 +53,8 @@
             width: 280px;
             height: 270px;
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            background: white;
             flex: 0 0 auto;
             display: flex;
             align-items:center;
@@ -66,13 +64,12 @@
         .card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             border-radius: 15px;
         
         }
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            
         }
         .products-section {
             margin-top: 50px;
@@ -110,7 +107,7 @@
             width: 300px;
             border-radius: 10px;   
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            background: white;
+            background: #f9ebd2;
             object-fit: cover;
             text-align: center;
             padding: 15px;
@@ -122,13 +119,14 @@
            object-fit: cover;
             flex-direction: row;
             gap: 10px;
-            margin-top: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+           
         }
         .product-card img {
-            width: 80%;
+            width: 85%;
             height: auto;
             border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
         } 
         .product-images img {
             width: 50px;
@@ -136,6 +134,7 @@
             border-radius: 5px;
             cursor: pointer;
             border: 1px solid #ccc;
+        
         }
         .heading{
             font-size: 36px;
@@ -161,7 +160,8 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 10px;
-            background: white;
+            background: #f9ebd2;
+            border:none;
         }
         .cart-items {
             list-style: none;
@@ -175,7 +175,7 @@
             margin-top: 15px;
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #804000;
+            background-color: #b35900;
             color: white;
             border: none;
             border-radius: 208px;
@@ -184,32 +184,85 @@
         .checkout-btn:hover {
             background-color: #e55e00;
         }
-@media only screen and (max-width: 1024px) {
-    .container {
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 20px; 
-        padding: 15px;
-    }
-    .card, .card3 {
-        width: 45%; 
-        margin: 10px;
-    }
-}
 
-
+/*mobile (max-width: 600px)*/
 @media only screen and (max-width: 600px) {
-    .container {
-        flex-direction: column; 
-        align-items: center; 
-        gap: 30px; 
+    body {
         padding: 10px;
     }
-    .card, .card3 {
-        width: 90%; 
-        margin-bottom: 30px;
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .card{
+        width: 50%;
+        height: auto;
+    }
+    .product-images img {
+        width: 40px; 
+        height: 40px;
+    }
+    .search-bar input {
+        width: 90%;
+        font-size: 14px;
+    }
+    .cart-section {
+        width: 100%;
+        padding: 15px;
+    }
+    .button{
+        width: 100%; 
+    }
+    
+    .checkout-btn {
+        width: 60%; 
     }
 }
+/*tablet (min-width:601px)-(max-width:1024px)*/
+@media only screen and (max-width: 1024px) {
+    .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    .card {
+        width: 45%;
+        height: auto;
+    }
+    .product-card {
+        width: 45%;
+    }
+    .product-images img {
+        width: 45px;
+        height: 45px;
+    }
+    .cart-section {
+        width: 90%;
+        padding: 15px;
+    }
+    .button{
+        width: 100%; 
+    }
+    
+    .checkout-btn {
+        width: 60%; 
+    }
+       }
+  @media only screen and (min-width: 1025px) { 
+        .container {
+        flex-wrap: nowrap; 
+        gap: 40px;
+    }
+    .card {
+        width: 280px;
+        height: 270px;
+    }
+    .product-card {
+        width: 300px;
+    }
+}   
+
     </style>
 </head>
 <body>
@@ -253,38 +306,41 @@
         <div class="search-bar">
             <input type="text" id="searchInput"  placeholder="Search products..." onkeyup="searchProducts()">
         </div>
+        
         <div class="products-container">
                <div class="product-card">
-                <img src="./../../../images/geometry_box.jpg"  alt="geometry_box" id="product1">
-                <br><br><br><br>
+                <img src="./../../../images/maths_spy.jpg"  alt="Math Spy Board Game" id="product1">
+                
                 <div class="product-images">
-                    <img src="./../../../images/geometry_box.jpg"  onclick="changeImage(event, 'product1')"/>
-                    <img src="./../../../images/box_card1.jpg"  onclick="changeImage(event, 'product1')"/>
-                    <img src="./../../../images/box_card2.jpg"  onclick="changeImage(event, 'product1')"/>
-                    <img src="./../../../images/box_card3.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/maths_spy.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/spy_card1.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/spy_card2.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/spy_card3.jpg"  onclick="changeImage(event, 'product1')"/>
                 </div>
-                <h3>Geometry Box</h3>
+
+                <h3>Math Spy Board Game</h3>
                 <p>Master precision and creativity with our geometry box!</p>
-                <b> <p>₹250/-</p> </b>  
-               <button class="button" onclick="addToCart('Geometry Box - ₹250/- ',)">Add to Cart</button>
+                <b> <p>₹1000/-</p> </b>  
+               <button class="button" onclick="addToCart('Math Spy Board Game - ₹1000/- ',)">Add to Cart</button>
                </div>
         
             <div class="product-card">
-                <img src="./../../../images/gk_quiz.jpg" alt="quiz_cube" id="product2">
+                <img src="./../../../images/gk_quiz.jpg" alt="GK Flashcards" id="product2">
             
                 <div class="product-images">
                     <img src="./../../../images/gk_quiz.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
-                    <img src="./../../../images/cube1.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
-                    <img src="./../../../images/cube2.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
+                    <img src="./../../../images/card1.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
+                    <img src="./../../../images/card2.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
+                    <img src="./../../../images/card3.jpg" class="product-image" onclick="changeImage(event, 'product2')"/>
                 </div>
-                <h3>Quiz Cube</h3>
-                <p>Twist, turn, and challenge your mind with the Quiz Cube!</p>
-                <b> <p>₹1500/-</p> </b>  
-               <button class="button" onclick="addToCart('Quiz Cube - ₹1500/- ',)">Add to Cart</button>
+                <h3>GK Flashcards</h3>
+                <p>Boost your knowledge with our engaging GK flashcards!</p>
+                <b> <p>₹800/-</p> </b>  
+               <button class="button" onclick="addToCart('GK Flashcards - ₹800/- ',)">Add to Cart</button>
                </div>
          
             <div class="product-card">
-                <img src="./../../../images/science_kit.jpg" alt="science_kit" id="product3">
+                <img src="./../../../images/science_kit.jpg" alt="Science Explorer Kit" id="product3">
             
                 <div class="product-images">
                     <img src="./../../../images/science_kit.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
@@ -292,13 +348,13 @@
                     <img src="./../../../images/kit2.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
                     <img src="./../../../images/kit3.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
                 </div>
-                <h3>Science Kit</h3>
-                <p>Unleash curiosity and explore science with our exciting kit!</p>
-                <b> <p>₹5000/-</p> </b>  
-               <button class="button" onclick="addToCart('Science Kit - ₹5000/- ',)">Add to Cart</button>
+                <h3>Science Explorer Kit</h3>
+                <p>Discover the wonders of science with our fun and exciting Science Explorer Kit!</p>
+                <b> <p>₹2500/-</p> </b>  
+               <button class="button" onclick="addToCart('Science Explorer Kit - ₹2500/- ',)">Add to Cart</button>
                </div>
         </div>
-
+        
         </div>
         <div class="cart-section">
             <h2 class="product-heading">Your Cart</h2>
@@ -312,8 +368,11 @@
        function changeImage(event, mainImageId) {
             let newSrc = event.target.src;
             let card = event.target.closest('.product-card');
-            let mainImage = card.querySelector(`#${mainImageId}`);
+            let mainImage = card.querySelector('img:first-of-type');
+            
+            if (mainImage) {
             mainImage.src = newSrc;
+            }
         }
         function addToCart(productName) {
             let cartList = document.getElementById("cart-list");
