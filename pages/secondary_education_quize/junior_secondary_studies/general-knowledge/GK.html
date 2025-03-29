@@ -8,10 +8,36 @@
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background:#667eea;
             padding: 20px;
             color: white;
         }
+        .exit {
+        background-color:red;
+        border: none;
+        height: 40px;
+        width: 80px;
+        font-size: 18px;
+        font-weight: 400;
+        position: absolute;
+        left: 25px;
+        top: 25px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid white;
+        outline: 2px solid red;
+      }
+      .exit:hover {
+        background-color: #ff000047;
+        color: black;
+      }
+      .exit img {
+        height: 15px;
+        width: 15px;
+        padding-left: 10px;
+      }
         .quiz-container {
             background: rgba(255, 255, 255, 0.2);
             padding: 30px;
@@ -77,11 +103,10 @@
     </style>
 </head>
 <body>
-    <div class="but">
-        <a href="./../.././junior_secondary_studies/junior_secondary_studies.html"
-        ><button class="exit" onclick="confirmExit()">
-          Back⬅</button
-      ></a></div>
+    <a href="./../secondary_education.html"
+    ><button class="exit">
+      Exit</button
+  ></a>
     <div class="quiz-container">
         <h2 id="question">Loading...</h2>
         <div id="options"></div>
