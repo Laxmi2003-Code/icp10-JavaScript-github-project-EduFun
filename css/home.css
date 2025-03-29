@@ -194,6 +194,10 @@ span {
   .mini-cards {
     gap: 15px;
   }
+ .edu-cards 
+  {
+    height:75vh;
+  }
   .cards {
     flex-direction: column;
     height: auto;
