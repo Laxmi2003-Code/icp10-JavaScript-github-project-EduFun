@@ -8,7 +8,7 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: rgb(213, 148, 191);
+            background-color: rgb(241, 234, 239);
         }
         .exit {
         background-color:red;
@@ -85,6 +85,197 @@
             margin-right: auto;
             text-align: left;
         }
+        .products-section {
+            margin-top: 50px;
+            text-align: center;
+            width: 100%;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align:center;
+            padding-left: 35px;
+        }
+        .search-bar input {
+            width: 170px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+        }
+        .products-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            
+        }
+        .product-heading{
+            font-size: 30px;
+            font-weight: bold;
+            color:#cc6600;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .product-card {
+            width: 300px;
+            border-radius: 10px;   
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: #f9ebd2;
+            object-fit: cover;
+            text-align: center;
+            padding: 15px;
+            cursor:pointer;
+            
+        }
+        
+        .product-image{
+           object-fit: cover;
+            flex-direction: row;
+            gap: 10px;
+           
+        }
+        .product-card img {
+            width: 85%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        } 
+        .product-images img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        
+        }
+        .heading{
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button{
+            padding: 10px 15px;
+             margin-top: 10px;
+            border: none;
+            border-radius: 18px;
+            color: white;
+            background-color: orange;
+            cursor: pointer;
+        }
+        .cart-section {
+            margin-top: 30px;
+            width: 80%;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background: #f9ebd2;
+            border:none;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-items li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .checkout-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #b35900;
+            color: white;
+            border: none;
+            border-radius: 208px;
+            cursor: pointer;
+        }
+        .checkout-btn:hover {
+            background-color: #e55e00;
+        }
+
+/*mobile (max-width: 600px)*/
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .card{
+        width: 50%;
+        height: auto;
+    }
+    .product-images img {
+        width: 40px; 
+        height: 40px;
+    }
+    .search-bar input {
+        width: 90%;
+        font-size: 14px;
+    }
+    .cart-section {
+        width: 100%;
+        padding: 15px;
+    }
+    .button{
+        width: 100%; 
+    }
+    
+    .checkout-btn {
+        width: 60%; 
+    }
+}
+/*tablet (min-width:601px)-(max-width:1024px)*/
+@media only screen and (max-width: 1024px) {
+    .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    .card {
+        width: 45%;
+        height: auto;
+    }
+    .product-card {
+        width: 45%;
+    }
+    .product-images img {
+        width: 45px;
+        height: 45px;
+    }
+    .cart-section {
+        width: 90%;
+        padding: 15px;
+    }
+    .button{
+        width: 100%; 
+    }
+    
+    .checkout-btn {
+        width: 60%; 
+    }
+       }
+  @media only screen and (min-width: 1025px) { 
+        .container {
+        flex-wrap: nowrap; 
+        gap: 40px;
+    }
+    .card {
+        width: 280px;
+        height: 270px;
+    }
+    .product-card {
+        width: 300px;
+    }
+}   
        
     </style>
 </head>
@@ -97,7 +288,7 @@
     <div class="quiz-container">
         <div>
             <a href="../junior_secondary_studies/math/math_game.html">
-                <img src="../../../images/math2.jpg" alt="Math Quiz">
+                <img src="../../../images/math1.jpg" alt="Math Quiz">
             </a>
             <a class="btn" href="../junior_secondary_studies/math/math_game.html">Play Quiz</a>
         </div>
@@ -109,7 +300,7 @@
         </div>
         <div>
             <a href="../junior_secondary_studies/general-knowledge/GK.html">
-                <img src="../../../images/gk.jpg" alt="General Knowledge Quiz">
+                <img src="../../../images/general-knowledge.jpg" alt="General Knowledge Quiz">
             </a>
             <a class="btn" href="../junior_secondary_studies/general-knowledge/GK.html">Play Quiz</a>
         </div>
@@ -122,61 +313,85 @@
     </div>
     
     <h2>Buy Learning & Gaming Materials</h2>
-    <div class="product-container">
-        <div class="product">
-            <img src="../../../images/box.jpg" alt="Math Material">
-            <h3>Math Learning Kit</h3>
-            <p>Price: ₹200</p>
-            <button class="cart-btn" onclick="addToCart('Math Learning Kit', 200)">Add to Cart</button>
+    
+        
+        <div class="products-container">
+               <div class="product-card">
+                <img src="./../../../images/box.jpg"  alt="Math Spy Board Game" id="product1">
+                
+                <div class="product-images">
+                    <img src="./../../../images/m1.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/m2.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/m3.jpg"  onclick="changeImage(event, 'product1')"/>
+                    <img src="./../../../images/m4.jpg"  onclick="changeImage(event, 'product1')"/>
+                </div>
+
+                <h3>Math Box</h3>
+             
+                <b> <p>₹500/-</p> </b>  
+               <button class="button" onclick="addToCart('Math Spy Board Game - ₹1000/- ',)">Add to Cart</button>
+               </div>
+        
+           
+            <div class="product-card">
+                <img src="./../../../images/sbox.jpg" alt="Science Explorer Kit" id="product3">
+            
+                <div class="product-images">
+                    <img src="./../../../images/s1.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/s2.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/s3.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                    <img src="./../../../images/s4.jpg" class="product-image" onclick="changeImage(event, 'product3')"/>
+                </div>
+                <h3>Science Explorer Kit</h3>
+               
+                <b> <p>₹600/-</p> </b>  
+               <button class="button" onclick="addToCart('Science Explorer Kit - ₹2500/- ',)">Add to Cart</button>
+               </div>
         </div>
-        <div class="product">
-            <img src="../../../images/sbox.jpg" alt="Science Material">
-            <h3>Science Explorer Kit</h3>
-            <p>Price: ₹100</p>
-            <button class="cart-btn" onclick="addToCart('Science Explorer Kit', 100)">Add to Cart</button>
+        
         </div>
-        <div class="product">
-            <img src="../../../images/gkbox.jpg" alt="General Knowledge Material">
-            <h3>General Knowledge Guide</h3>
-            <p>Price: ₹400</p>
-            <button class="cart-btn" onclick="addToCart('General Knowledge Guide', 400)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="../../../images/dbox.jpg" alt="Dice Roller Game">
-            <h3>Dice Roller Set</h3>
-            <p>Price: ₹300</p>
-            <button class="cart-btn" onclick="addToCart('Dice Roller Set', 300)">Add to Cart</button>
+        <div class="cart-section">
+            <h2 class="product-heading">Your Cart</h2>
+            <ul id="cart-list" class="cart-items"></ul>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
         </div>
     </div>
-    
-    <h2>Cart Information</h2>
-    <div class="cart-info" id="cart-info">
-        <p>No items in cart.</p>
     </div>
-    
     <script>
-        let cart = [];
-        
-        function addToCart(item, price) {
-            cart.push({ item, price });
-            updateCartDisplay();
-        }
-        
-        function updateCartDisplay() {
-            let cartInfo = document.getElementById("cart-info");
-            if (cart.length === 0) {
-                cartInfo.innerHTML = "<p>No items in cart.</p>";
-            } else {
-                let cartHTML = "<ul>";
-                let total = 0;
-                cart.forEach(product => {
-                    cartHTML += `<li>${product.item} - ₹${product.price}</li>`;
-                    total += product.price;
-                });
-                cartHTML += `</ul><p><strong>Total: ₹${total}</strong></p>`;
-                cartInfo.innerHTML = cartHTML;
+       
+       function changeImage(event, mainImageId) {
+            let newSrc = event.target.src;
+            let card = event.target.closest('.product-card');
+            let mainImage = card.querySelector('img:first-of-type');
+            
+            if (mainImage) {
+            mainImage.src = newSrc;
             }
         }
+        function addToCart(productName) {
+            let cartList = document.getElementById("cart-list");
+            let listItem = document.createElement("li");
+            listItem.textContent = productName;
+            cartList.appendChild(listItem);
+        }
+        function checkout() {
+            alert("Checkout functionality will be implemented soon!");
+        }
+        
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                let productName = product.querySelector('h3').innerText.toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
     </script>
+
 </body>
 </html>
