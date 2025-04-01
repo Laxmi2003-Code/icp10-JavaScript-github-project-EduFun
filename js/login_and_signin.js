@@ -69,15 +69,18 @@ window.onload = function () {
   const presentUserDesktop = document.getElementById("UserlogIn");
   const presentUserMobile = document.getElementById("pn-UserlogIn");
   const savedUsername = localStorage.getItem("loggedInUser");
-
+  const account = document.getElementById("account-page");
+  const accounPhn = document.getElementById("account-page-phn");
   if (savedUsername) {
     if (presentUserDesktop) {
       //for the desktop
       presentUserDesktop.innerText = `${savedUsername}`;
+      account.href=`.././pages/account.html`
     }
     if (presentUserMobile) {
       //for the mobile
       presentUserMobile.innerText = `${savedUsername}`;
+      accounPhn.href=`.././pages/account.html`
     }
   }
 };
