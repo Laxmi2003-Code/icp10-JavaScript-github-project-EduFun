@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
-</head>
-<body>
-     <h1>Account</h1>
-</body>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: white;
+      }
+      .account-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 80vh;
+        margin: auto;
+        background-color: red;
+      }
+      .ac-img {
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+      }
+      .ac-img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      input[type="file"] {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Account</h1>
+    <div class="account-container">
+      <div class="account-info">
+        <div class="ac-img">
+          <img
+            src="./../images/account-black.png"
+            alt="account-image"
+            id="userAccountImage"
+          />
+        </div>
+        <h1 id="userName">user</h1>
+        <form>
+          <input type="file" id="userImage" name="userImage" accept="image/*" />
+
+          
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const primaryImage = document.getElementById("userAccountImage");
+      const userImage = document.getElementById("userImage");
+
+      // Load image from localStorage if available
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        primaryImage.src = savedImage;
+      }
+
+
+      //other data saving
+      //usernam display from local storage
+   let name = document.getElementById("userName");
+   const savedUsername = localStorage.getItem("loggedInUser");
+   if (savedUsername) {
+      name.innerHTML =`${savedUsername}`;
+   }
+    </script>
+  </body>
 </html>
