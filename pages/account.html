@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: center;
         width: 70%;
-        height:80vh;
+        height: 80vh;
         margin: auto;
         background-color: red;
       }
@@ -38,18 +38,16 @@
         object-fit: cover;
         border-radius: 50%;
       }
-      .information-container
-      {
+      .information-container {
         display: flex;
-        align-items:center;
-        justify-content:center;
-        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
-      .info 
-      {
-        height:30px;
-        width:250px;
-        border-radius:15px;
+      .info {
+        height: 30px;
+        width: 250px;
+        border-radius: 15px;
       }
     </style>
   </head>
@@ -66,15 +64,20 @@
         </div>
         <h1 id="userName">user</h1>
         <form class="information-container">
-         <label>Name</label>
-         <input type="text" id="name" name="name" class="info">
-         <label>Email</label>
-         <input type="email" id="email" name="email" class="info">
-         <label>Phone Number</label>
-         <input type="tel" id="phone-number" name="phone-number" class="info">
-         <label>Education</label>
-         <input type="text" id="education" name="education" class="info">
-         <button type="button" onclick="infoSubmit()">Submit</button>
+          <label>Name</label>
+          <input type="text" id="name" name="name" class="info" />
+          <label>Email</label>
+          <input type="email" id="email" name="email" class="info" />
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            id="phone-number"
+            name="phone-number"
+            class="info"
+          />
+          <label>Education</label>
+          <input type="text" id="education" name="education" class="info" />
+          <button type="button" onclick="infoSubmit()">Submit</button>
         </form>
       </div>
     </div>
@@ -89,39 +92,60 @@
         primaryImage.src = savedImage;
       }
 
-
       //other data saving
       //usernam display from local storage
-   let name = document.getElementById("userName");
-   const savedUsername = localStorage.getItem("loggedInUser");
-   if (savedUsername) {
-      name.innerHTML =`${savedUsername}`;
-   }
-   function infoSubmit()
-   {
-    let studentInfo = [];
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone-number").value;
-    let education = document.getElementById("education").value;
-    const studentinfo =
-    {
-      Username:name,
-      Useremail:email,
-      Userphone:phone,
-      Usereducation:education
-    }
-    studentInfo.push(studentinfo);
-    localStorage.setItem("studentInfo",JSON.stringify(studentInfo));
-    console.log(studentInfo)
-    name="";
-    email="";
-    phone="";
-    education="";
-    const presentUserName = localStorage.getItem("Username");
-    console.log(presentUserName);
-   }
-   //if student info is already present then display in infomation box
+      let mainName = document.getElementById("userName");
+      const savedUsername = localStorage.getItem("loggedInUser");
+      if (savedUsername) {
+        mainName.innerHTML = `${savedUsername}`;
+      }
+      //other information
+      function infoSubmit() {
+        let studentInfo = [];
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone-number").value;
+        const education = document.getElementById("education").value;
+        const studentinfo = {
+          Username: name,
+          Useremail: email,
+          Userphone: phone,
+          Usereducation: education,
+        };
+        studentInfo.push(studentinfo);
+        localStorage.setItem("studentInfo", JSON.stringify(studentInfo));
+        console.log(studentInfo); //print student information array
+        //stores the user information in seperate variables
+        const presentUserName = localStorage.setItem(
+          "PresentName",
+          studentinfo.Username
+        );
+        const presentUserEmail = localStorage.setItem(
+          "PresentEmail",
+          studentinfo.Useremail
+        );
+
+        const presentUserPhone = localStorage.setItem(
+          "presentPhone",
+          studentinfo.Userphone
+        );
+        const presentEducation = localStorage.setItem(
+          "presentEducation",
+          studentinfo.Usereducation
+        );
+        console.log(presentUserName);
+        console.log(presentUserEmail);
+        console.log(presentUserPhone);
+        console.log(presentEducation);
+
+        //clear the input field
+        const nameClr = document.getElementById("name").value="";
+        const emailClr = document.getElementById("email").value="";
+        const phoneClr = document.getElementById("phone-number").value="";
+        const educationClr = document.getElementById("education").value="";
+      }
+
+      //if student info is already present then display in infomation box
     </script>
   </body>
 </html>
