@@ -49,6 +49,10 @@
         width: 250px;
         border-radius: 15px;
       }
+      .submit {
+      }
+      .edit {
+      }
     </style>
   </head>
   <body>
@@ -65,19 +69,45 @@
         <h1 id="userName">user</h1>
         <form class="information-container">
           <label>Name</label>
-          <input type="text" id="name" name="name" class="info" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter a Name"
+            class="info"
+            value=""
+          />
           <label>Email</label>
-          <input type="email" id="email" name="email" class="info" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter a Email"
+            class="info"
+            value=""
+          />
           <label>Phone Number</label>
           <input
             type="tel"
             id="phone-number"
             name="phone-number"
+            placeholder="Enter a phone number"
             class="info"
+            value=""
           />
           <label>Education</label>
-          <input type="text" id="education" name="education" class="info" />
-          <button type="button" onclick="infoSubmit()">Submit</button>
+          <input
+            type="text"
+            id="education"
+            name="education"
+            placeholder="Enter Educational Status"
+            class="info"
+            value=""
+          />
+          <button type="button" onclick="infoSubmit()" class="submit">
+            Submit
+          </button>
+          <button type="button" onclick="edit()" class="edit">Edit</button>
         </form>
       </div>
     </div>
@@ -86,7 +116,7 @@
       const primaryImage = document.getElementById("userAccountImage");
       const userImage = document.getElementById("userImage");
 
-      // Load image from localStorage if available
+      // Load image from localStorage if available but it not working
       const savedImage = localStorage.getItem("profileImage");
       if (savedImage) {
         primaryImage.src = savedImage;
@@ -100,49 +130,45 @@
         mainName.innerHTML = `${savedUsername}`;
       }
       //other information
+
+      // Save user information in localStorage
       function infoSubmit() {
-        let studentInfo = [];
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone-number").value;
-        const education = document.getElementById("education").value;
-        const studentinfo = {
-          Username: name,
-          Useremail: email,
-          Userphone: phone,
-          Usereducation: education,
-        };
-        studentInfo.push(studentinfo);
-        localStorage.setItem("studentInfo", JSON.stringify(studentInfo));
-        console.log(studentInfo); //print student information array
-        //stores the user information in seperate variables
-        const presentUserName = localStorage.setItem(
-          "PresentName",
-          studentinfo.Username
-        );
-        const presentUserEmail = localStorage.setItem(
-          "PresentEmail",
-          studentinfo.Useremail
-        );
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone-number").value;
+        let education = document.getElementById("education").value;
 
-        const presentUserPhone = localStorage.setItem(
-          "presentPhone",
-          studentinfo.Userphone
-        );
-        const presentEducation = localStorage.setItem(
-          "presentEducation",
-          studentinfo.Usereducation
-        );
-        console.log(presentUserName);
-        console.log(presentUserEmail);
-        console.log(presentUserPhone);
-        console.log(presentEducation);
+        // Store values in localStorage
+        localStorage.setItem("PresentName", name);
+        localStorage.setItem("PresentEmail", email);
+        localStorage.setItem("PresentPhone", phone); 
+        localStorage.setItem("PresentEducation", education);
+      }
 
-        //clear the input field
-        const nameClr = document.getElementById("name").value="";
-        const emailClr = document.getElementById("email").value="";
-        const phoneClr = document.getElementById("phone-number").value="";
-        const educationClr = document.getElementById("education").value="";
+      // Automatically load saved data when the page reloads
+      window.onload = function () {
+        save();
+      };
+
+      function save() {
+        let presentUserNameDisplay = localStorage.getItem("PresentName");
+        let presentUserEmailDisplay = localStorage.getItem("PresentEmail");
+        let presentUserPhoneDisplay = localStorage.getItem("PresentPhone"); 
+        let presentEducationDisplay = localStorage.getItem("PresentEducation"); 
+
+        if (presentUserNameDisplay) {
+          document.getElementById("name").value = presentUserNameDisplay;
+        }
+        if (presentUserEmailDisplay) {
+          document.getElementById("email").value = presentUserEmailDisplay;
+        }
+        if (presentUserPhoneDisplay) {
+          document.getElementById("phone-number").value =
+            presentUserPhoneDisplay;
+        }
+        if (presentEducationDisplay) {
+          document.getElementById("education").value = presentEducationDisplay;
+        }
       }
 
       //if student info is already present then display in infomation box
