@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: center;
         width: 70%;
-        height: 80vh;
+        height:80vh;
         margin: auto;
         background-color: red;
       }
@@ -38,8 +38,18 @@
         object-fit: cover;
         border-radius: 50%;
       }
-      input[type="file"] {
-        margin-top: 15px;
+      .information-container
+      {
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      .info 
+      {
+        height:30px;
+        width:250px;
+        border-radius:15px;
       }
     </style>
   </head>
@@ -55,10 +65,15 @@
           />
         </div>
         <h1 id="userName">user</h1>
-        <form>
-          <input type="file" id="userImage" name="userImage" accept="image/*" />
-
-          
+        <form class="information-container">
+         <label>Name</label>
+         <input type="text" id="name" name="name" class="info">
+         <label>Email</label>
+         <input type="email" id="email" name="email" class="info">
+         <label>Phone Number</label>
+         <input type="tel" id="phone-number" name="phone-number" class="info">
+         <label>Education</label>
+         <input type="text" id="education" name="education" class="info">
         </form>
       </div>
     </div>
