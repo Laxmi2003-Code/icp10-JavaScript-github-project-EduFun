@@ -20,7 +20,6 @@
         width: 70%;
         height: 80vh;
         margin: auto;
-        background-color: red;
       }
       .ac-img {
         background-color: white;
@@ -50,8 +49,10 @@
         border-radius: 15px;
       }
       .submit {
+        display: flex;
       }
       .edit {
+        display: flex;
       }
     </style>
   </head>
@@ -131,6 +132,9 @@
       }
       //other information
 
+      //submit button and button
+      let submitBtn = document.getElementById("submit");
+      let editBtn = document.getElementById("edit");
       // Save user information in localStorage
       function infoSubmit() {
         let name = document.getElementById("name").value;
@@ -141,20 +145,19 @@
         // Store values in localStorage
         localStorage.setItem("PresentName", name);
         localStorage.setItem("PresentEmail", email);
-        localStorage.setItem("PresentPhone", phone); 
+        localStorage.setItem("PresentPhone", phone);
         localStorage.setItem("PresentEducation", education);
+
+        //disable the input to edit
+        disableEdit();
       }
 
-      // Automatically load saved data when the page reloads
-      window.onload = function () {
-        save();
-      };
-
+      //if student info is already present then display in infomation box
       function save() {
         let presentUserNameDisplay = localStorage.getItem("PresentName");
         let presentUserEmailDisplay = localStorage.getItem("PresentEmail");
-        let presentUserPhoneDisplay = localStorage.getItem("PresentPhone"); 
-        let presentEducationDisplay = localStorage.getItem("PresentEducation"); 
+        let presentUserPhoneDisplay = localStorage.getItem("PresentPhone");
+        let presentEducationDisplay = localStorage.getItem("PresentEducation");
 
         if (presentUserNameDisplay) {
           document.getElementById("name").value = presentUserNameDisplay;
@@ -169,9 +172,39 @@
         if (presentEducationDisplay) {
           document.getElementById("education").value = presentEducationDisplay;
         }
+        if (
+          presentUserNameDisplay == null &&
+          presentUserEmailDisplay == null &&
+          presentUserPhoneDisplay == null &&
+          presentEducationDisplay == null
+        ) {
+          enableEdit();
+        } else {
+          //disable the input to edit
+          disableEdit();
+        }
       }
-
-      //if student info is already present then display in infomation box
+      //disables the editing
+      function disableEdit() {
+        document.getElementById("name").disabled = true;
+        document.getElementById("email").disabled = true;
+        document.getElementById("phone-number").disabled = true;
+        document.getElementById("education").disabled = true;
+      }
+      //enable edit
+      function enableEdit() {
+        document.getElementById("name").disabled = false;
+        document.getElementById("email").disabled = false;
+        document.getElementById("phone-number").disabled = false;
+        document.getElementById("education").disabled = false;
+      }
+      function edit() {
+        enableEdit();
+      }
+      // Automatically load saved data when the page reloads
+      window.onload = function () {
+        save();
+      };
     </script>
   </body>
 </html>
