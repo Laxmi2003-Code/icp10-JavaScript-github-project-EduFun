@@ -74,6 +74,7 @@
          <input type="tel" id="phone-number" name="phone-number" class="info">
          <label>Education</label>
          <input type="text" id="education" name="education" class="info">
+         <button type="button" onclick="infoSubmit()">Submit</button>
         </form>
       </div>
     </div>
@@ -96,6 +97,25 @@
    if (savedUsername) {
       name.innerHTML =`${savedUsername}`;
    }
+   function infoSubmit()
+   {
+    let studentInfo = [];
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone-number").value;
+    let education = document.getElementById("education").value;
+    const studentinfo =
+    {
+      name:name,
+      email:email,
+      phone:phone,
+      education:education
+    }
+    studentInfo.push(studentinfo);
+    localStorage.setItem("studentInfo",JSON.stringify(studentInfo));
+    console.log(studentInfo)
+   }
+   //if student info is already present then display in infomation box
     </script>
   </body>
 </html>
