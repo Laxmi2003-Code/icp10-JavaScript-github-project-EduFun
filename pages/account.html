@@ -106,14 +106,20 @@
     let education = document.getElementById("education").value;
     const studentinfo =
     {
-      name:name,
-      email:email,
-      phone:phone,
-      education:education
+      Username:name,
+      Useremail:email,
+      Userphone:phone,
+      Usereducation:education
     }
     studentInfo.push(studentinfo);
     localStorage.setItem("studentInfo",JSON.stringify(studentInfo));
     console.log(studentInfo)
+    name="";
+    email="";
+    phone="";
+    education="";
+    const presentUserName = localStorage.getItem("Username");
+    console.log(presentUserName);
    }
    //if student info is already present then display in infomation box
     </script>
