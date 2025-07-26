@@ -218,7 +218,7 @@ function displayLetter(letter) {
     document.getElementById('letterInput').value = letter;
     document.getElementById('letter').textContent = "Letter: " + letter;
 
-    let imagePath = alphabet[letter].img; // Correct way to get image path
+    let imagePath = alphabet[letter].img; 
     document.getElementById('image').src = imagePath;
     document.getElementById('image').style.display = "block";
 
